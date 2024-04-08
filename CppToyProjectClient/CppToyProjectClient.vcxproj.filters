@@ -13,25 +13,35 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\Main">
+      <UniqueIdentifier>{764ea7ff-c7ac-43f0-a651-52cab73525f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Main">
+      <UniqueIdentifier>{3c630836-bb49-4194-a6cc-26aeee9b5668}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Managers">
+      <UniqueIdentifier>{571cfb7a-a88a-402b-bbfc-fde6f18a76f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Managers">
+      <UniqueIdentifier>{e7de192b-44fa-41c2-b950-82d0070826f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="CppToyProjectClient.h">
+      <Filter>헤더 파일\Main</Filter>
     </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="framework.h">
+      <Filter>헤더 파일\Main</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Main</Filter>
     </ClInclude>
-    <ClInclude Include="CppToyProjectClient.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일\Main</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="CppToyProjectClient.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
+    <ClInclude Include="Managers\drawingManager.h">
+      <Filter>헤더 파일\Managers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CppToyProjectClient.rc">
@@ -45,5 +55,13 @@
     <Image Include="CppToyProjectClient.ico">
       <Filter>리소스 파일</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CppToyProjectClient.cpp">
+      <Filter>소스 파일\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\drawingManager.cpp">
+      <Filter>소스 파일\Managers</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
