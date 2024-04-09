@@ -107,7 +107,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
-
+    
+    DrawingManager::getInstance().initialize(hInst, hWnd);
+    
    return TRUE;
 }
 
@@ -145,8 +147,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_PAINT:
         {
             PAINTSTRUCT ps;
-            HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+            HDC hdc = BeginPaint(hWnd, &ps); 
+
+            DrawingManager::getInstance().drawBackground(hdc);
+
             EndPaint(hWnd, &ps);
         }
         break;

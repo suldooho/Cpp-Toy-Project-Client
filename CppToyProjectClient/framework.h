@@ -15,3 +15,5 @@
 #include <tchar.h>
 
 #include <vector>
+
+#include "Managers/drawingManager.h"
