@@ -1,7 +1,11 @@
-#include "map.h"
+#include "../Main/framework.h" 
 
 Map::Map(PlayerLocation playerLocation) : m_playerLocation(playerLocation)
 {
+} 
+
+Map::~Map()
+{ 
 }
 
 PlayerLocation Map::getPlayerLocation() const

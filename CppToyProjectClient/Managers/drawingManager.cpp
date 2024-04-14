@@ -1,7 +1,9 @@
-#include "drawingManager.h"
+#include "../Main/framework.h"
 
 DrawingManager::DrawingManager() : m_backBufferBitmap(NULL)
 {
+	LoginMap* loginMap = new LoginMap();
+	maps.emplace(loginMap->getPlayerLocation(), loginMap);
 }
 
 void DrawingManager::setBackBufferBitmap(HWND hwnd)
@@ -50,6 +52,9 @@ void DrawingManager::drawBackground(HWND hwnd, HDC hdc)
 
 
 
+	RECT clientRect;
+	GetClientRect(hwnd, &clientRect); 
+	BitBlt(hdc, 0, 0, clientRect.right, clientRect.bottom, memoryDc, 0, 0, SRCCOPY);
 
 	SelectObject(memoryDc, oldBackBufferBitmap);
 	DeleteDC(memoryDc);

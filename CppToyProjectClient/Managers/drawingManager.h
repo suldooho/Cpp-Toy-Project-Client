@@ -1,5 +1,5 @@
-#pragma once
-#include "../Main/framework.h"
+#pragma once 
+class Map;
 
 class DrawingManager
 {
@@ -10,6 +10,7 @@ public:
 
 private:
 	HBITMAP m_backBufferBitmap;
+	std::unordered_map<PlayerLocation, std::unique_ptr<Map>> maps;
 
 private:
 	void loadResources();

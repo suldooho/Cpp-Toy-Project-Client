@@ -15,7 +15,9 @@
 #include <tchar.h> 
 #include <memory> 
 #include <vector>
+#include <unordered_map>
 
+#include "../Main/gameFramework.h"
 #include "../Managers/drawingManager.h"
-#include "gameFramework.h"
 #include "../Objects/map.h"
+#include "../Objects/loginMap.h"

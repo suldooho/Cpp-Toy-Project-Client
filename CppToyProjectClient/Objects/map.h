@@ -1,10 +1,11 @@
-#pragma once
-#include "../Main/framework.h"
+#pragma once 
 
 class Map
 {
 protected:
-	const enum class PlayerLocation m_playerLocation;
+	const PlayerLocation m_playerLocation;
+
+	std::vector<HBITMAP> m_bitmaps;
 
 protected:
 	Map(PlayerLocation playerLocation);
@@ -12,11 +13,17 @@ protected:
 	Map() = delete;
 	Map(const Map&) = delete;
 	Map(Map&&) = delete;
-	 
+
+public:
+	virtual ~Map();
+
+protected:
+	virtual void loadResources() = 0;
+
 public:
 	PlayerLocation getPlayerLocation() const;
 
-	virtual void loadResources() = 0;
 	virtual void draw() = 0;
+
 };
 

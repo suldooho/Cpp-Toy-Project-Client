@@ -1,13 +1,15 @@
 #pragma once
-#include "../Main/framework.h"
-
+  
 class LoginMap : public Map
 {
 public:
 	LoginMap();
+	virtual ~LoginMap();
+
+protected:
+	virtual void loadResources() override;
 
 public:
-	virtual void loadResources() override;
 	virtual void draw() override;
 };
 

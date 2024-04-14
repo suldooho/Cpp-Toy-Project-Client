@@ -1,5 +1,4 @@
-#pragma once
-#include "framework.h"
+#pragma once 
 class DrawingManager;
 
 enum class PlayerLocation
