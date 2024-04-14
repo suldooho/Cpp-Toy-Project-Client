@@ -107,8 +107,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
-    
-    DrawingManager::getInstance().initialize(hInst, hWnd);
+     
     
    return TRUE;
 }
@@ -127,6 +126,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+    case WM_SIZE:
+        RECT rect;
+        GetClientRect(hWnd, &rect);
+        InvalidateRect(hWnd, NULL, TRUE);
+        break;
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
@@ -148,8 +152,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         {
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps); 
-
-            DrawingManager::getInstance().drawBackground(hdc);
+             
 
             EndPaint(hWnd, &ps);
         }

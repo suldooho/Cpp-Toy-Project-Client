@@ -27,20 +27,23 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CppToyProjectClient.h">
-      <Filter>헤더 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="framework.h">
-      <Filter>헤더 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>헤더 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>헤더 파일\Main</Filter>
-    </ClInclude>
     <ClInclude Include="Managers\drawingManager.h">
       <Filter>헤더 파일\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\gameFramework.h">
+      <Filter>헤더 파일\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\CppToyProjectClient.h">
+      <Filter>헤더 파일\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\framework.h">
+      <Filter>헤더 파일\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\targetver.h">
+      <Filter>헤더 파일\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Resource.h">
+      <Filter>헤더 파일\Main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -57,11 +60,14 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CppToyProjectClient.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
     <ClCompile Include="Managers\drawingManager.cpp">
       <Filter>소스 파일\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\gameFramework.cpp">
+      <Filter>소스 파일\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\CppToyProjectClient.cpp">
+      <Filter>소스 파일\Main</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

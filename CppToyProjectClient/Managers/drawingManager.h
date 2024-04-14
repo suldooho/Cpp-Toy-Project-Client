@@ -1,11 +1,8 @@
 #pragma once
-#include "../framework.h"
+#include "../Main/framework.h"
 
 class DrawingManager
-{ 
-public: 
-	static DrawingManager& getInstance();
-	
+{  
 private:
 	HINSTANCE m_instance;
 	HWND m_hwnd;

@@ -127,14 +127,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CppToyProjectClient.h" />
-    <ClInclude Include="framework.h" />
+    <ClInclude Include="Main\CppToyProjectClient.h" />
+    <ClInclude Include="Main\framework.h" />
+    <ClInclude Include="Main\gameFramework.h" />
+    <ClInclude Include="Main\Resource.h" />
+    <ClInclude Include="Main\targetver.h" />
     <ClInclude Include="Managers\drawingManager.h" />
-    <ClInclude Include="Resource.h" />
-    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CppToyProjectClient.cpp" />
+    <ClCompile Include="Main\CppToyProjectClient.cpp" />
+    <ClCompile Include="Main\gameFramework.cpp" />
     <ClCompile Include="Managers\drawingManager.cpp" />
   </ItemGroup>
   <ItemGroup>

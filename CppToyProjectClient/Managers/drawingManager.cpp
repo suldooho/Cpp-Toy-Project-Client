@@ -1,11 +1,5 @@
 #include "drawingManager.h"
 
-DrawingManager& DrawingManager::getInstance()
-{
-	static DrawingManager drawingManager;
-	return drawingManager;
-}
-
 void DrawingManager::setWindowSize()
 {
 	RECT rect;
