@@ -1,22 +1,24 @@
 #include "drawingManager.h"
 
-DrawingManager::DrawingManager() : m_windowWidth(0), m_windowHeight(0)
+DrawingManager::DrawingManager() : m_backBufferBitmap(NULL)
 {
-} 
+}
 
-void DrawingManager::setWindowSize(HWND hwnd)
+void DrawingManager::setBackBufferBitmap(HWND hwnd)
 {
-	RECT rect;
-	GetClientRect(hwnd, &rect);
-	m_windowWidth = rect.right - rect.left;
-	m_windowHeight = rect.bottom - rect.top;
+	if (m_backBufferBitmap)
+	{
+		DeleteObject(m_backBufferBitmap);
+	}
+	HDC hdc = GetDC(hwnd);
+	RECT clientRect;
+	GetClientRect(hwnd, &clientRect);
+
+	m_backBufferBitmap = CreateCompatibleBitmap(hdc, clientRect.right, clientRect.bottom);
 }
 
 void DrawingManager::loadResources()
 {
-	HBITMAP bitmap; 
-	bitmap = (HBITMAP)LoadImage(NULL, TEXT("Resources/testMyBackground.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
-	m_bitmaps.emplace_back(bitmap);
 }
 
 void DrawingManager::drawBitmap(HDC hdc, HBITMAP bitmap, int x, int y, float widthMultiply, float heightMultiply)
@@ -35,26 +37,22 @@ void DrawingManager::drawBitmap(HDC hdc, HBITMAP bitmap, int x, int y, float wid
 	DeleteDC(memoryHdc);
 }
 
-void DrawingManager::drawMyBackground(HDC hdc)
-{
-	for (HBITMAP& bitmap : m_bitmaps)
-	{
-		drawBitmap(hdc, bitmap, 0, 0, 1.5f, 1.5f);
-	}
-}
-
-void DrawingManager::drawOtherBackground(HDC hdc)
-{
-}
- 
-
 void DrawingManager::initialize()
 {
 	loadResources();
 }
 
-void DrawingManager::drawBackground(HDC hdc)
+void DrawingManager::drawBackground(HWND hwnd, HDC hdc)
 { 
-	drawMyBackground(hdc);
-	drawOtherBackground(hdc);
+	HDC memoryDc = CreateCompatibleDC(hdc);
+	HBITMAP oldBackBufferBitmap = (HBITMAP)SelectObject(memoryDc, m_backBufferBitmap);
+
+
+
+
+
+	SelectObject(memoryDc, oldBackBufferBitmap);
+	DeleteDC(memoryDc);
+	ReleaseDC(hwnd, hdc);
+	InvalidateRect(hwnd, NULL, FALSE);
 } 

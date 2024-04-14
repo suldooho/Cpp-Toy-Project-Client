@@ -1,5 +1,6 @@
 #pragma once
 #include "framework.h"
+class DrawingManager;
 
 enum class PlayerLocation
 {
@@ -21,9 +22,10 @@ private:
 private:
 	PlayerLocation m_playerLocation;
 
-	std::unique_ptr<class DrawingManager> m_drawingManager;
+	std::unique_ptr<DrawingManager> m_drawingManager;
 
 public:
 	void initialize();
+	void changeWindowSize(HWND hwnd);
 };
 

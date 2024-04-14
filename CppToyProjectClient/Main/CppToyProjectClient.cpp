@@ -131,6 +131,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_SIZE:
         RECT rect;
         GetClientRect(hWnd, &rect);
+
+        GameFramework::getInstance().changeWindowSize(hWnd);
+
         InvalidateRect(hWnd, NULL, TRUE);
         break;
     case WM_COMMAND:

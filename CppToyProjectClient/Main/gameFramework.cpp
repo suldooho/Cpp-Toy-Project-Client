@@ -15,3 +15,8 @@ void GameFramework::initialize()
 {
 	m_drawingManager->initialize();
 }
+
+void GameFramework::changeWindowSize(HWND hwnd)
+{
+	m_drawingManager->setBackBufferBitmap(hwnd);
+}
