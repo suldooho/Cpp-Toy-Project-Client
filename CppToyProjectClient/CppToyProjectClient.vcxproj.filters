@@ -25,6 +25,12 @@
     <Filter Include="헤더 파일\Managers">
       <UniqueIdentifier>{e7de192b-44fa-41c2-b950-82d0070826f8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Objects">
+      <UniqueIdentifier>{e2241069-959d-439e-b4a0-e6ddae7a16a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Objects">
+      <UniqueIdentifier>{bf2de4db-bb7b-4aca-8234-7fe73331fd0b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Managers\drawingManager.h">
@@ -44,6 +50,12 @@
     </ClInclude>
     <ClInclude Include="Main\Resource.h">
       <Filter>헤더 파일\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\map.h">
+      <Filter>헤더 파일\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\loginMap.h">
+      <Filter>헤더 파일\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +80,12 @@
     </ClCompile>
     <ClCompile Include="Main\CppToyProjectClient.cpp">
       <Filter>소스 파일\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\map.cpp">
+      <Filter>소스 파일\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\loginMap.cpp">
+      <Filter>소스 파일\Objects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

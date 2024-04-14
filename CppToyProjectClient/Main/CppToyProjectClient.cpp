@@ -108,7 +108,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
      
-    
    return TRUE;
 }
 
@@ -126,6 +125,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+    case WM_CREATE:
+        GameFramework::getInstance().initialize();
+        break;
     case WM_SIZE:
         RECT rect;
         GetClientRect(hWnd, &rect);

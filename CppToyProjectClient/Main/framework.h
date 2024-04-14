@@ -12,8 +12,10 @@
 #include <stdlib.h>
 #include <malloc.h>
 #include <memory.h>
-#include <tchar.h>
-
+#include <tchar.h> 
+#include <memory> 
 #include <vector>
 
 #include "../Managers/drawingManager.h"
+#include "gameFramework.h"
+#include "../Objects/map.h"

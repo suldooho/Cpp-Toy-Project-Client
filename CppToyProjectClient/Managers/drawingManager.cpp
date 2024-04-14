@@ -1,9 +1,13 @@
 #include "drawingManager.h"
 
-void DrawingManager::setWindowSize()
+DrawingManager::DrawingManager() : m_windowWidth(0), m_windowHeight(0)
+{
+} 
+
+void DrawingManager::setWindowSize(HWND hwnd)
 {
 	RECT rect;
-	GetClientRect(m_hwnd, &rect);
+	GetClientRect(hwnd, &rect);
 	m_windowWidth = rect.right - rect.left;
 	m_windowHeight = rect.bottom - rect.top;
 }
@@ -37,21 +41,17 @@ void DrawingManager::drawMyBackground(HDC hdc)
 	{
 		drawBitmap(hdc, bitmap, 0, 0, 1.5f, 1.5f);
 	}
-
 }
 
 void DrawingManager::drawOtherBackground(HDC hdc)
 {
 }
+ 
 
-void DrawingManager::initialize(HINSTANCE instance, HWND hwnd)
+void DrawingManager::initialize()
 {
-	m_instance = instance;
-	m_hwnd = hwnd;
-
-	setWindowSize();
 	loadResources();
-} 
+}
 
 void DrawingManager::drawBackground(HDC hdc)
 { 

@@ -2,10 +2,13 @@
 #include "../Main/framework.h"
 
 class DrawingManager
-{  
+{
+public:
+	DrawingManager();
+	DrawingManager(const DrawingManager&) = delete;
+	DrawingManager(DrawingManager&&) = delete;
+
 private:
-	HINSTANCE m_instance;
-	HWND m_hwnd;
 	unsigned int m_windowWidth;
 	unsigned int m_windowHeight;
 
@@ -13,7 +16,7 @@ private:
 	std::vector<HBITMAP> m_bitmaps;
 
 private:
-	void setWindowSize();
+	void setWindowSize(HWND hwnd);
 	void loadResources();
 
 private:
@@ -21,8 +24,8 @@ private:
 	void drawMyBackground(HDC hdc);
 	void drawOtherBackground(HDC hdc);
 
-public:
-	void initialize(HINSTANCE instance, HWND hwnd);
+public: 
+	void initialize();
 	void drawBackground(HDC hdc); 
 };
 
