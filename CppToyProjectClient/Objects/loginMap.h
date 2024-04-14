@@ -1,5 +1,3 @@
-#pragma once
-  
 class LoginMap : public Map
 {
 public:

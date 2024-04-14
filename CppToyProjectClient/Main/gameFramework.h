@@ -1,4 +1,3 @@
-#pragma once 
 class DrawingManager;
 
 enum class PlayerLocation
