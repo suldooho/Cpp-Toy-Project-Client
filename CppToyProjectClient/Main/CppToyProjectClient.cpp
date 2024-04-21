@@ -1,12 +1,11 @@
 ﻿// CppToyProjectClient.cpp : 애플리케이션에 대한 진입점을 정의합니다.
 // 
 #include "framework.h"
-#include "CppToyProjectClient.h" 
+#include "CppToyProjectClient.h"  
 
-#define MAX_LOADSTRING 100
-
+#define MAX_LOADSTRING 100 
 // 전역 변수:
-HINSTANCE hInst;                                // 현재 인스턴스입니다.
+HINSTANCE g_hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
 
@@ -94,7 +93,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 //
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
-   hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
+    g_hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
@@ -104,6 +103,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
       return FALSE;
    }
 
+   SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
      
@@ -125,24 +125,35 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message)
     {
     case WM_CREATE:
-        GameFramework::getInstance().initialize();
+        GameFramework::getInstance().initialize(hWnd, g_hInst);
         break;
-    case WM_SIZE:
-        RECT rect;
-        GetClientRect(hWnd, &rect);
-
+    case WM_SIZE:  
         GameFramework::getInstance().changeWindowSize(hWnd);
 
         InvalidateRect(hWnd, NULL, TRUE);
         break;
     case WM_COMMAND:
-        {
-            int wmId = LOWORD(wParam);
-            // 메뉴 선택을 구문 분석합니다:
-            switch (wmId)
+        {  
+            switch (LOWORD(wParam))
             {
+            case  static_cast<int>(Control::Edit):
+                switch (HIWORD(wParam))
+                {
+                case EN_CHANGE: 
+                    GameFramework::getInstance().changeEidt(hWnd);
+                    break;
+                }
+                break;
+            case static_cast<int>(Control::ChangeStageButton):
+                MessageBox(hWnd, TEXT("TEST"), TEXT("Button"), MB_OK);
+
+
+
+
+
+                break;
             case IDM_ABOUT:
-                DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
+                DialogBox(g_hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
                 break;
             case IDM_EXIT:
                 DestroyWindow(hWnd);
@@ -152,21 +163,25 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             }
         }
         break;
-    case WM_PAINT:
+    case WM_PAINT: 
         {
             PAINTSTRUCT ps;
-            HDC hdc = BeginPaint(hWnd, &ps); 
+            HDC dc = BeginPaint(hWnd, &ps); 
              
+            GameFramework::getInstance().draw(hWnd, dc);
 
-            EndPaint(hWnd, &ps);
+            EndPaint(hWnd, &ps); 
         }
         break;
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
+    case WM_ERASEBKGND:
+        break;
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
+
     return 0;
 }
 

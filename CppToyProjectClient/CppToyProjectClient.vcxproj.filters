@@ -19,12 +19,6 @@
     <Filter Include="헤더 파일\Main">
       <UniqueIdentifier>{3c630836-bb49-4194-a6cc-26aeee9b5668}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Managers">
-      <UniqueIdentifier>{571cfb7a-a88a-402b-bbfc-fde6f18a76f5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\Managers">
-      <UniqueIdentifier>{e7de192b-44fa-41c2-b950-82d0070826f8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\Objects">
       <UniqueIdentifier>{e2241069-959d-439e-b4a0-e6ddae7a16a7}</UniqueIdentifier>
     </Filter>
@@ -33,9 +27,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Managers\drawingManager.h">
-      <Filter>헤더 파일\Managers</Filter>
-    </ClInclude>
     <ClInclude Include="Main\gameFramework.h">
       <Filter>헤더 파일\Main</Filter>
     </ClInclude>
@@ -51,10 +42,16 @@
     <ClInclude Include="Main\Resource.h">
       <Filter>헤더 파일\Main</Filter>
     </ClInclude>
-    <ClInclude Include="Objects\map.h">
+    <ClInclude Include="Objects\userInterface.h">
       <Filter>헤더 파일\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Objects\loginMap.h">
+    <ClInclude Include="Objects\stage.h">
+      <Filter>헤더 파일\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\loginStage.h">
+      <Filter>헤더 파일\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\loginUserInterface.h">
       <Filter>헤더 파일\Objects</Filter>
     </ClInclude>
   </ItemGroup>
@@ -72,19 +69,22 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Managers\drawingManager.cpp">
-      <Filter>소스 파일\Managers</Filter>
-    </ClCompile>
     <ClCompile Include="Main\gameFramework.cpp">
       <Filter>소스 파일\Main</Filter>
     </ClCompile>
     <ClCompile Include="Main\CppToyProjectClient.cpp">
       <Filter>소스 파일\Main</Filter>
     </ClCompile>
-    <ClCompile Include="Objects\map.cpp">
+    <ClCompile Include="Objects\userInterface.cpp">
       <Filter>소스 파일\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Objects\loginMap.cpp">
+    <ClCompile Include="Objects\stage.cpp">
+      <Filter>소스 파일\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\loginStage.cpp">
+      <Filter>소스 파일\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\loginUserInterface.cpp">
       <Filter>소스 파일\Objects</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,11 +1,5 @@
-class DrawingManager;
-
-enum class PlayerLocation
-{
-	Login,
-	Lobby,
-	Playing
-};
+class Stage;
+class UserInterface;
 
 class GameFramework
 {
@@ -17,13 +11,14 @@ private:
 	GameFramework(const GameFramework&) = delete;
 	GameFramework(GameFramework&&) = delete;
 
-private:
-	PlayerLocation m_playerLocation;
-
-	std::unique_ptr<DrawingManager> m_drawingManager;
+private:  
+	std::unique_ptr<Stage> m_stage;
+	std::unique_ptr<UserInterface> m_userInterface;
 
 public:
-	void initialize();
+	void initialize(HWND hwnd, HINSTANCE hinstance);
 	void changeWindowSize(HWND hwnd);
+	void changeEidt(HWND hwnd);
+	void draw(HWND hwnd, HDC dc);
 };
 

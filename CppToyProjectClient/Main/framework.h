@@ -12,12 +12,15 @@
 #include <stdlib.h>
 #include <malloc.h>
 #include <memory.h>
-#include <tchar.h> 
+#include <tchar.h>   
+#include <iostream>
 #include <memory> 
+#include <string>
 #include <vector>
 #include <unordered_map>
-
-#include "../Main/gameFramework.h"
-#include "../Managers/drawingManager.h"
-#include "../Objects/map.h"
-#include "../Objects/loginMap.h"
+ 
+#include "../Main/gameFramework.h" 
+#include "../Objects/stage.h"
+#include "../Objects/loginStage.h"
+#include "../Objects/userInterface.h"
+#include "../Objects/loginUserInterface.h"

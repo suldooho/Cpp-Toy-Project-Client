@@ -132,16 +132,18 @@
     <ClInclude Include="Main\gameFramework.h" />
     <ClInclude Include="Main\Resource.h" />
     <ClInclude Include="Main\targetver.h" />
-    <ClInclude Include="Managers\drawingManager.h" />
-    <ClInclude Include="Objects\loginMap.h" />
-    <ClInclude Include="Objects\map.h" />
+    <ClInclude Include="Objects\loginStage.h" />
+    <ClInclude Include="Objects\loginUserInterface.h" />
+    <ClInclude Include="Objects\stage.h" />
+    <ClInclude Include="Objects\userInterface.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\CppToyProjectClient.cpp" />
     <ClCompile Include="Main\gameFramework.cpp" />
-    <ClCompile Include="Managers\drawingManager.cpp" />
-    <ClCompile Include="Objects\loginMap.cpp" />
-    <ClCompile Include="Objects\map.cpp" />
+    <ClCompile Include="Objects\loginStage.cpp" />
+    <ClCompile Include="Objects\loginUserInterface.cpp" />
+    <ClCompile Include="Objects\stage.cpp" />
+    <ClCompile Include="Objects\userInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CppToyProjectClient.rc" />

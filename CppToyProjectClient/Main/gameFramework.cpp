@@ -6,17 +6,27 @@ GameFramework& GameFramework::getInstance()
 	return gameFramework;
 }
 
-GameFramework::GameFramework() : m_playerLocation(PlayerLocation::Login)
+GameFramework::GameFramework() :m_stage(nullptr), m_userInterface(nullptr)
 {
-	m_drawingManager = std::make_unique<DrawingManager>();
 }
 
-void GameFramework::initialize()
+void GameFramework::initialize(HWND hwnd, HINSTANCE hinstance)
 {
-	m_drawingManager->initialize();
+	m_stage = std::make_unique<LoginStage>();
+	m_userInterface = std::make_unique<LoginUserInterface>(hwnd, hinstance);
 }
 
 void GameFramework::changeWindowSize(HWND hwnd)
+{ 
+	m_userInterface->moveControlsPosition(hwnd);
+}
+
+void GameFramework::changeEidt(HWND hwnd)
 {
-	m_drawingManager->setBackBufferBitmap(hwnd);
+	m_userInterface->changeEidt(hwnd);
+}
+
+void GameFramework::draw(HWND hwnd, HDC dc)
+{ 
+	m_stage->draw(hwnd, dc);
 }
