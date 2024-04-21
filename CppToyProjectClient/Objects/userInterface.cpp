@@ -1,7 +1,7 @@
 #include "../Main/framework.h"
 
 UserInterface::UserInterface() : m_editLetters(L"")
-{
+{ 
 }
 
 UserInterface::~UserInterface()

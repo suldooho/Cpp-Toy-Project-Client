@@ -132,6 +132,8 @@
     <ClInclude Include="Main\gameFramework.h" />
     <ClInclude Include="Main\Resource.h" />
     <ClInclude Include="Main\targetver.h" />
+    <ClInclude Include="Objects\lobbyStage.h" />
+    <ClInclude Include="Objects\lobbyUserInterface.h" />
     <ClInclude Include="Objects\loginStage.h" />
     <ClInclude Include="Objects\loginUserInterface.h" />
     <ClInclude Include="Objects\stage.h" />
@@ -140,6 +142,8 @@
   <ItemGroup>
     <ClCompile Include="Main\CppToyProjectClient.cpp" />
     <ClCompile Include="Main\gameFramework.cpp" />
+    <ClCompile Include="Objects\lobbyStage.cpp" />
+    <ClCompile Include="Objects\lobbyUserInterface.cpp" />
     <ClCompile Include="Objects\loginStage.cpp" />
     <ClCompile Include="Objects\loginUserInterface.cpp" />
     <ClCompile Include="Objects\stage.cpp" />

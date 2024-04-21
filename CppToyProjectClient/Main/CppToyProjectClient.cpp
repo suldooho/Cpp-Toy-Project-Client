@@ -125,7 +125,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message)
     {
     case WM_CREATE:
-        GameFramework::getInstance().initialize(hWnd, g_hInst);
+        GameFramework::getInstance().changePlayerLocation(hWnd, g_hInst); 
         break;
     case WM_SIZE:  
         GameFramework::getInstance().changeWindowSize(hWnd);
@@ -145,12 +145,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 }
                 break;
             case static_cast<int>(Control::ChangeStageButton):
-                MessageBox(hWnd, TEXT("TEST"), TEXT("Button"), MB_OK);
+                MessageBox(hWnd, TEXT("TEST"), TEXT("Button"), MB_OK); 
 
+                GameFramework::getInstance().changePlayerLocation(hWnd, g_hInst);
 
-
-
-
+                InvalidateRect(hWnd, NULL, TRUE);
                 break;
             case IDM_ABOUT:
                 DialogBox(g_hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);

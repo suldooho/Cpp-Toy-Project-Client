@@ -22,5 +22,7 @@
 #include "../Main/gameFramework.h" 
 #include "../Objects/stage.h"
 #include "../Objects/loginStage.h"
+#include "../Objects/lobbyStage.h"
 #include "../Objects/userInterface.h"
 #include "../Objects/loginUserInterface.h"
+#include "../Objects/lobbyUserInterface.h"

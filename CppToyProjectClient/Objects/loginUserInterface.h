@@ -1,6 +1,8 @@
 class LoginUserInterface : public UserInterface
 {
+private:
 	const unsigned int m_nickNameMaxLength = 10;
+
 public:
 	LoginUserInterface(HWND hwnd, HINSTANCE hinstance);
 	virtual ~LoginUserInterface();
