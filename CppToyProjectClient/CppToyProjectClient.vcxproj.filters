@@ -37,6 +37,12 @@
     <Filter Include="헤더 파일\Objects\UserInterface">
       <UniqueIdentifier>{16e5bb06-090d-435d-b346-86d898cd6963}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Objects\Player">
+      <UniqueIdentifier>{4bede65d-2638-4477-9f6c-e6a12e8cfbac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Objects\Player">
+      <UniqueIdentifier>{4e398ef0-01e3-44e1-bce8-99e41282ec7d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main\gameFramework.h">
@@ -57,12 +63,6 @@
     <ClInclude Include="Objects\lobbyStage.h">
       <Filter>헤더 파일\Objects\Stage</Filter>
     </ClInclude>
-    <ClInclude Include="Objects\lobbyUserInterface.h">
-      <Filter>헤더 파일\Objects\Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="Objects\loginStage.h">
-      <Filter>헤더 파일\Objects\UserInterface</Filter>
-    </ClInclude>
     <ClInclude Include="Objects\loginUserInterface.h">
       <Filter>헤더 파일\Objects\UserInterface</Filter>
     </ClInclude>
@@ -71,6 +71,18 @@
     </ClInclude>
     <ClInclude Include="Objects\userInterface.h">
       <Filter>헤더 파일\Objects\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\chattingComponent.h">
+      <Filter>헤더 파일\Objects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\loginStage.h">
+      <Filter>헤더 파일\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\lobbyUserInterface.h">
+      <Filter>헤더 파일\Objects\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\player.h">
+      <Filter>헤더 파일\Objects\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +122,12 @@
     </ClCompile>
     <ClCompile Include="Objects\userInterface.cpp">
       <Filter>소스 파일\Objects\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\chattingComponent.cpp">
+      <Filter>소스 파일\Objects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\player.cpp">
+      <Filter>소스 파일\Objects\Player</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

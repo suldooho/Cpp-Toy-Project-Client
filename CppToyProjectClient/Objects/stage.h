@@ -1,15 +1,15 @@
 class Stage
 {
 protected:
-	std::vector<HBITMAP> m_bitmaps;
-
-protected:
 	Stage();
 	Stage(const Stage&) = delete;
 	Stage(Stage&&) = delete;
 
 public:
 	virtual ~Stage();
+
+protected:
+	std::vector<HBITMAP> m_bitmaps;
 
 protected:
 	virtual void loadBitmaps() = 0;

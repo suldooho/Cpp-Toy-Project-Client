@@ -1,5 +1,6 @@
 class Stage;
 class UserInterface;
+class Player;
 
 enum class PlayerLocation
 {
@@ -24,18 +25,19 @@ private:
 
 	std::unique_ptr<Stage> m_stage;
 	std::unique_ptr<UserInterface> m_userInterface;
+	std::unique_ptr<Player> m_player;
 
 private:
-	void createLogin(HWND hwnd, HINSTANCE hinstance);
-	void createLobby(HWND hwnd, HINSTANCE hinstance);
-	void createInGame(HWND hwnd, HINSTANCE hinstance);
-	void deleteCurrentStage();
+	void deleteCurrentLocation();
+	void createLogin(const HWND hwnd, const HINSTANCE hinstance);
+	void createLobby(const HWND hwnd, const HINSTANCE hinstance);
+	void createInGame(const HWND hwnd, const HINSTANCE hinstance);
 
 public:
-	void changeWindowSize(HWND hwnd);
-	void changeEidt(HWND hwnd);
-	void changePlayerLocation(HWND hwnd, HINSTANCE hinstance);
-	void draw(HWND hwnd, HDC dc);
+	void changeWindowSize(const HWND hwnd);
+	void changePlayerLocation(const HWND hwnd, const HINSTANCE hinstance);
+	void handleKeyboardLogic(const HWND hwnd, const WPARAM wparam);
+	void draw(const HWND hwnd, const HDC dc);
 
 };
 

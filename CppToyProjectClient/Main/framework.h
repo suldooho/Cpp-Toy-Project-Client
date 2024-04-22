@@ -26,3 +26,5 @@
 #include "../Objects/userInterface.h"
 #include "../Objects/loginUserInterface.h"
 #include "../Objects/lobbyUserInterface.h"
+#include "../Objects/player.h"
+#include "../Objects/chattingComponent.h"

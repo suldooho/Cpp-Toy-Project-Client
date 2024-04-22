@@ -6,27 +6,11 @@ GameFramework& GameFramework::getInstance()
 	return gameFramework;
 }
 
-GameFramework::GameFramework() : m_playerLocation(PlayerLocation::Connect), m_stage(nullptr), m_userInterface(nullptr)
+GameFramework::GameFramework() : m_playerLocation(PlayerLocation::Connect), m_stage(nullptr), m_userInterface(nullptr), m_player(nullptr)
 { 
-} 
-
-void GameFramework::createLogin(HWND hwnd, HINSTANCE hinstance)
-{
-	m_stage = std::make_unique<LoginStage>();
-	m_userInterface = std::make_unique<LoginUserInterface>(hwnd, hinstance);
 }
 
-void GameFramework::createLobby(HWND hwnd, HINSTANCE hinstance)
-{
-	m_stage = std::make_unique<LobbyStage>();
-	m_userInterface = std::make_unique<LobbyUserInterface>(hwnd, hinstance);
-}
-
-void GameFramework::createInGame(HWND hwnd, HINSTANCE hinstance)
-{
-}
-
-void GameFramework::deleteCurrentStage()
+void GameFramework::deleteCurrentLocation()
 {
 	if (m_stage != nullptr)
 	{
@@ -39,20 +23,39 @@ void GameFramework::deleteCurrentStage()
 	}
 }
 
+void GameFramework::createLogin(const HWND hwnd, const HINSTANCE hinstance)
+{
+	m_stage = std::make_unique<LoginStage>();
+	m_userInterface = std::make_unique<LoginUserInterface>(hwnd, hinstance);
+}
 
-void GameFramework::changeWindowSize(HWND hwnd)
+void GameFramework::createLobby(const HWND hwnd, const HINSTANCE hinstance)
+{
+	m_stage = std::make_unique<LobbyStage>();
+	m_userInterface = std::make_unique<LobbyUserInterface>(hwnd, hinstance);
+	m_player = std::make_unique<Player>(hwnd, hinstance);
+}
+
+void GameFramework::createInGame(const HWND hwnd, const HINSTANCE hinstance)
+{
+} 
+
+void GameFramework::changeWindowSize(const HWND hwnd)
 { 
-	m_userInterface->moveControlsPosition(hwnd);
+	if (m_userInterface)
+	{
+		m_userInterface->moveControlsPosition(hwnd);
+	}
+
+	if (m_player)
+	{
+		m_player->moveComponentsPosition(hwnd);
+	}
 }
 
-void GameFramework::changeEidt(HWND hwnd)
+void GameFramework::changePlayerLocation(const HWND hwnd, const HINSTANCE hinstance)
 {
-	m_userInterface->changeEidt(hwnd);
-}
-
-void GameFramework::changePlayerLocation(HWND hwnd, HINSTANCE hinstance)
-{
-	deleteCurrentStage();
+	deleteCurrentLocation();
 	switch (m_playerLocation)
 	{
 	case PlayerLocation::Connect:
@@ -74,7 +77,28 @@ void GameFramework::changePlayerLocation(HWND hwnd, HINSTANCE hinstance)
 	}
 }
 
-void GameFramework::draw(HWND hwnd, HDC dc)
+void GameFramework::handleKeyboardLogic(const HWND hwnd, const WPARAM wparam)
+{
+	switch (wparam)
+	{
+	case VK_RETURN:
+		if (m_player)
+		{ 
+			m_player->sendMessage(hwnd);
+		}
+		break;
+	}
+}
+
+void GameFramework::draw(const HWND hwnd, const HDC dc)
 { 
-	m_stage->draw(hwnd, dc);
+	if (m_stage)
+	{
+		//m_stage->draw(hwnd, dc); 
+	}
+
+	if (m_player)
+	{
+		m_player->draw(hwnd, dc);
+	}
 }

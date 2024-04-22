@@ -120,6 +120,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_DESTROY  - 종료 메시지를 게시하고 반환합니다.
 //
 //
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
@@ -140,7 +141,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 switch (HIWORD(wParam))
                 {
                 case EN_CHANGE: 
-                    GameFramework::getInstance().changeEidt(hWnd);
+
+
                     break;
                 }
                 break;
@@ -161,7 +163,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 return DefWindowProc(hWnd, message, wParam, lParam);
             }
         }
-        break;
+        break; 
     case WM_PAINT: 
         {
             PAINTSTRUCT ps;

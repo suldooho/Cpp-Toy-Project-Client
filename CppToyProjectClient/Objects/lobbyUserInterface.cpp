@@ -1,6 +1,6 @@
 #include "../Main/framework.h"
 
-LobbyUserInterface::LobbyUserInterface(HWND hwnd, HINSTANCE hinstance)
+LobbyUserInterface::LobbyUserInterface(const HWND hwnd, const HINSTANCE hinstance)
 {
 	createControls(hwnd, hinstance);
 }
@@ -9,21 +9,32 @@ LobbyUserInterface::~LobbyUserInterface()
 {
 }
 
-void LobbyUserInterface::createControls(HWND hwnd, HINSTANCE hinstance)
+void LobbyUserInterface::createControls(const HWND hwnd, const HINSTANCE hinstance)
 {
+	setControlsSize(hwnd);
+
 	RECT windowSize;
 	GetClientRect(hwnd, &windowSize); 
 
-	HWND button = CreateWindow(TEXT("button"), TEXT("Click Me"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, windowSize.right / 2 - 100, windowSize.bottom / 2 + 50, 200, 100, hwnd, (HMENU)Control::ChangeStageButton, hinstance, NULL);
-	m_controls.emplace(Control::ChangeStageButton, button);
+	HWND button = CreateWindow(TEXT("button"), TEXT("Create Room"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, 0, windowSize.bottom - m_buttonHeight, m_buttonWidth, m_buttonHeight, hwnd, (HMENU)Control::CreateRoomMakeButton, hinstance, NULL);
+	m_controls.emplace(Control::CreateRoomMakeButton, button);
 }
 
-unsigned int LobbyUserInterface::getLettersMaxLength() const
+void LobbyUserInterface::setControlsSize(const HWND hwnd)
 {
-	// 현제 포커스되어있는 에디트박스 정보 얻어오기
-	return 0;
+	RECT windowSize;
+	GetClientRect(hwnd, &windowSize);
+
+	m_buttonWidth = windowSize.right / 3 * 2 - 25;
+	m_buttonHeight = windowSize.bottom / 6;
 }
 
-void LobbyUserInterface::moveControlsPosition(HWND hwnd)
+void LobbyUserInterface::moveControlsPosition(const HWND hwnd)
 {
+	setControlsSize(hwnd);
+
+	RECT windowSize;
+	GetClientRect(hwnd, &windowSize);
+
+	MoveWindow(m_controls[Control::CreateRoomMakeButton], 0, windowSize.bottom - m_buttonHeight, m_buttonWidth, m_buttonHeight, false);
 }

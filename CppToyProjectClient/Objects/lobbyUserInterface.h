@@ -1,22 +1,23 @@
 class LobbyUserInterface : public UserInterface
 {
-private:
-	const unsigned int m_chattingMaxLength = 10;
-	const unsigned int m_roomNamingMaxLength = 10;
-
 public:
-	LobbyUserInterface(HWND hwnd, HINSTANCE hinstance);
+	LobbyUserInterface(const HWND hwnd, const HINSTANCE hinstance);
 	virtual ~LobbyUserInterface();
 
 	LobbyUserInterface() = delete;
 	LobbyUserInterface(const LobbyUserInterface&) = delete;
 	LobbyUserInterface(LobbyUserInterface&&) = delete;
 
+private:
+	static const unsigned int m_roomNamingMaxLength = 10;
+	unsigned int m_buttonWidth;
+	unsigned int m_buttonHeight;
+
 protected:
-	virtual void createControls(HWND hwnd, HINSTANCE hinstance) override;
-	virtual unsigned int getLettersMaxLength() const;
+	virtual void createControls(const HWND hwnd, const HINSTANCE hinstance) override;
+	virtual void setControlsSize(const HWND hwnd) override;
 
 public:
-	virtual void moveControlsPosition(HWND hwnd) override;
+	virtual void moveControlsPosition(const HWND hwnd) override;
 };
 
