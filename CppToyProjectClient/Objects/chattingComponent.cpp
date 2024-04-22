@@ -137,8 +137,7 @@ void ChattingComponent::showCommunicationContent(const HWND hwnd, const HDC dc)
 	{
 		TextOut(memoryDc, 0, 0, content.c_str(), static_cast<int>(content.length()));
 	}
-
-
+	
 	StretchBlt(dc, windowSize.right - m_chattingScreenWidth - m_chattingScrollWidth, 0, m_chattingScreenWidth, m_chattingScreenHeight, memoryDc, 0, 0, bitmapInformation.bmWidth, bitmapInformation.bmHeight, SRCCOPY);
 	SelectObject(memoryDc, oldBitmap);
 

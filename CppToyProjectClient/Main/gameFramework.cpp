@@ -6,17 +6,12 @@ GameFramework& GameFramework::getInstance()
 	return gameFramework;
 }
 
-GameFramework::GameFramework() : m_playerLocation(PlayerLocation::Connect), m_stage(nullptr), m_userInterface(nullptr), m_player(nullptr)
+GameFramework::GameFramework() : m_playerLocation(PlayerLocation::Connect), m_userInterface(nullptr), m_player(nullptr)
 { 
 }
 
 void GameFramework::deleteCurrentLocation()
-{
-	if (m_stage != nullptr)
-	{
-		m_stage.reset();
-	}
-
+{  
 	if (m_userInterface != nullptr)
 	{
 		m_userInterface.reset();
@@ -24,14 +19,12 @@ void GameFramework::deleteCurrentLocation()
 }
 
 void GameFramework::createLogin(const HWND hwnd, const HINSTANCE hinstance)
-{
-	m_stage = std::make_unique<LoginStage>();
+{ 
 	m_userInterface = std::make_unique<LoginUserInterface>(hwnd, hinstance);
 }
 
 void GameFramework::createLobby(const HWND hwnd, const HINSTANCE hinstance)
-{
-	m_stage = std::make_unique<LobbyStage>();
+{ 
 	m_userInterface = std::make_unique<LobbyUserInterface>(hwnd, hinstance);
 	m_player = std::make_unique<Player>(hwnd, hinstance);
 }
@@ -92,9 +85,9 @@ void GameFramework::handleKeyboardLogic(const HWND hwnd, const WPARAM wparam)
 
 void GameFramework::draw(const HWND hwnd, const HDC dc)
 { 
-	if (m_stage)
+	if (m_userInterface)
 	{
-		//m_stage->draw(hwnd, dc); 
+		m_userInterface->draw(hwnd, dc);
 	}
 
 	if (m_player)

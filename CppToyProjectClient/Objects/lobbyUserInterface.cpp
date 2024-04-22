@@ -2,11 +2,19 @@
 
 LobbyUserInterface::LobbyUserInterface(const HWND hwnd, const HINSTANCE hinstance)
 {
+	loadBitmaps();
 	createControls(hwnd, hinstance);
 }
 
 LobbyUserInterface::~LobbyUserInterface()
 {
+}
+
+void LobbyUserInterface::loadBitmaps()
+{
+	HBITMAP bitmap;
+	bitmap = (HBITMAP)LoadImage(NULL, TEXT("Resources/Login/testOtherBackground.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
+	m_bitmaps.emplace_back(bitmap);
 }
 
 void LobbyUserInterface::createControls(const HWND hwnd, const HINSTANCE hinstance)
@@ -37,4 +45,8 @@ void LobbyUserInterface::moveControlsPosition(const HWND hwnd)
 	GetClientRect(hwnd, &windowSize);
 
 	MoveWindow(m_controls[Control::CreateRoomMakeButton], 0, windowSize.bottom - m_buttonHeight, m_buttonWidth, m_buttonHeight, false);
+}
+
+void LobbyUserInterface::draw(const HWND hwnd, const HDC dc)
+{
 }

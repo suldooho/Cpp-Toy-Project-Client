@@ -19,10 +19,7 @@
 #include <vector>
 #include <unordered_map>
  
-#include "../Main/gameFramework.h" 
-#include "../Objects/stage.h"
-#include "../Objects/loginStage.h"
-#include "../Objects/lobbyStage.h"
+#include "../Main/gameFramework.h"  
 #include "../Objects/userInterface.h"
 #include "../Objects/loginUserInterface.h"
 #include "../Objects/lobbyUserInterface.h"

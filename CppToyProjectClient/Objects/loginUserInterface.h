@@ -15,10 +15,12 @@ private:
 	unsigned int m_buttonHeight;
 
 protected:
+	virtual void loadBitmaps() override;
 	virtual void createControls(const HWND hwnd, const HINSTANCE hinstance) override;
 	virtual void setControlsSize(const HWND hwnd) override;
 
 public:
 	virtual void moveControlsPosition(const HWND hwnd) override;
+	virtual void draw(const HWND hwnd, const HDC dc) override;
 };
 

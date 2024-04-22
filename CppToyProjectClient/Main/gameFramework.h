@@ -1,5 +1,4 @@
-class Stage;
-class UserInterface;
+class UserInterface; 
 class Player;
 
 enum class PlayerLocation
@@ -22,8 +21,7 @@ private:
 
 private:  
 	PlayerLocation m_playerLocation;
-
-	std::unique_ptr<Stage> m_stage;
+	 
 	std::unique_ptr<UserInterface> m_userInterface;
 	std::unique_ptr<Player> m_player;
 

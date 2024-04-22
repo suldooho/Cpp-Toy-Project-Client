@@ -25,14 +25,8 @@
     <Filter Include="헤더 파일\Objects">
       <UniqueIdentifier>{bf2de4db-bb7b-4aca-8234-7fe73331fd0b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Objects\Stage">
-      <UniqueIdentifier>{3d660332-d114-4c03-8265-6ae5bf0bc67f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\Objects\UserInterface">
       <UniqueIdentifier>{81b0b5c7-43ea-4991-bd58-4e7b6841c848}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\Objects\Stage">
-      <UniqueIdentifier>{d60e0495-f811-4986-a749-e9c9f4122c74}</UniqueIdentifier>
     </Filter>
     <Filter Include="헤더 파일\Objects\UserInterface">
       <UniqueIdentifier>{16e5bb06-090d-435d-b346-86d898cd6963}</UniqueIdentifier>
@@ -60,23 +54,14 @@
     <ClInclude Include="Main\Resource.h">
       <Filter>헤더 파일\Main</Filter>
     </ClInclude>
-    <ClInclude Include="Objects\lobbyStage.h">
-      <Filter>헤더 파일\Objects\Stage</Filter>
-    </ClInclude>
     <ClInclude Include="Objects\loginUserInterface.h">
       <Filter>헤더 파일\Objects\UserInterface</Filter>
-    </ClInclude>
-    <ClInclude Include="Objects\stage.h">
-      <Filter>헤더 파일\Objects\Stage</Filter>
     </ClInclude>
     <ClInclude Include="Objects\userInterface.h">
       <Filter>헤더 파일\Objects\UserInterface</Filter>
     </ClInclude>
     <ClInclude Include="Objects\chattingComponent.h">
       <Filter>헤더 파일\Objects\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Objects\loginStage.h">
-      <Filter>헤더 파일\Objects\Stage</Filter>
     </ClInclude>
     <ClInclude Include="Objects\lobbyUserInterface.h">
       <Filter>헤더 파일\Objects\UserInterface</Filter>
@@ -105,20 +90,11 @@
     <ClCompile Include="Main\CppToyProjectClient.cpp">
       <Filter>소스 파일\Main</Filter>
     </ClCompile>
-    <ClCompile Include="Objects\lobbyStage.cpp">
-      <Filter>소스 파일\Objects\Stage</Filter>
-    </ClCompile>
     <ClCompile Include="Objects\loginUserInterface.cpp">
       <Filter>소스 파일\Objects\UserInterface</Filter>
     </ClCompile>
-    <ClCompile Include="Objects\loginStage.cpp">
-      <Filter>소스 파일\Objects\Stage</Filter>
-    </ClCompile>
     <ClCompile Include="Objects\lobbyUserInterface.cpp">
       <Filter>소스 파일\Objects\UserInterface</Filter>
-    </ClCompile>
-    <ClCompile Include="Objects\stage.cpp">
-      <Filter>소스 파일\Objects\Stage</Filter>
     </ClCompile>
     <ClCompile Include="Objects\userInterface.cpp">
       <Filter>소스 파일\Objects\UserInterface</Filter>
