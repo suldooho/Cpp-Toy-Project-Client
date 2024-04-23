@@ -1,6 +1,6 @@
 #include "../Main/framework.h"
 
-UserInterface::UserInterface() 
+UserInterface::UserInterface() : m_drawed(false)
 { 
 }
 
@@ -15,4 +15,14 @@ UserInterface::~UserInterface()
 	{
 		DestroyWindow(control.second);
 	}
+} 
+
+bool UserInterface::getDrawed()
+{
+	return m_drawed;
+}
+
+void UserInterface::setDrawed(bool drawed)
+{
+	m_drawed = drawed;
 }

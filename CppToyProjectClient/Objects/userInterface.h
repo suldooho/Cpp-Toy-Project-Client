@@ -21,6 +21,7 @@ public:
 protected:
 	std::vector<HBITMAP> m_bitmaps;
 	std::unordered_map<Control, HWND> m_controls;
+	bool m_drawed;
 
 protected:
 	virtual void loadBitmaps() = 0;
@@ -28,6 +29,8 @@ protected:
 	virtual void setControlsSize(const HWND hwnd) = 0;
 
 public:
+	bool getDrawed();
+	void setDrawed(bool drawed);
 	virtual void moveControlsPosition(const HWND hwnd) = 0;
 	virtual void draw(const HWND hwnd, const HDC dc) = 0;
 };

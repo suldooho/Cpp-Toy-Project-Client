@@ -38,6 +38,7 @@ void GameFramework::changeWindowSize(const HWND hwnd)
 	if (m_userInterface)
 	{
 		m_userInterface->moveControlsPosition(hwnd);
+		m_userInterface->setDrawed(false);
 	}
 
 	if (m_player)
@@ -85,8 +86,9 @@ void GameFramework::handleKeyboardLogic(const HWND hwnd, const WPARAM wparam)
 
 void GameFramework::draw(const HWND hwnd, const HDC dc)
 { 
-	if (m_userInterface)
+	if (m_userInterface && !m_userInterface->getDrawed())
 	{
+		m_userInterface->setDrawed(true);
 		m_userInterface->draw(hwnd, dc);
 	}
 

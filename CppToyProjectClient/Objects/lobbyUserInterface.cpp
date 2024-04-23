@@ -49,4 +49,17 @@ void LobbyUserInterface::moveControlsPosition(const HWND hwnd)
 
 void LobbyUserInterface::draw(const HWND hwnd, const HDC dc)
 {
+	RECT windowSize;
+	GetClientRect(hwnd, &windowSize);
+
+	HDC memoryDc = CreateCompatibleDC(dc);
+
+	HBITMAP oldBitmap = (HBITMAP)SelectObject(memoryDc, m_bitmaps[0]);
+	BITMAP bitmapInformation;
+	GetObject(m_bitmaps[0], sizeof(BITMAP), &bitmapInformation);
+
+	StretchBlt(dc, 0, 0, windowSize.right, windowSize.bottom, memoryDc, 0, 0, bitmapInformation.bmWidth, bitmapInformation.bmHeight, SRCCOPY);
+	SelectObject(memoryDc, oldBitmap);
+
+	DeleteDC(memoryDc);
 }

@@ -36,6 +36,6 @@ public:
 	void changePlayerLocation(const HWND hwnd, const HINSTANCE hinstance);
 	void handleKeyboardLogic(const HWND hwnd, const WPARAM wparam);
 	void draw(const HWND hwnd, const HDC dc);
-
+	bool Test = false;
 };
 

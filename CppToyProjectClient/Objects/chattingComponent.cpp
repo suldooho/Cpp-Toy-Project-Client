@@ -97,33 +97,7 @@ void ChattingComponent::inputChattingMessage(const HWND hwnd)
 }
 
 void ChattingComponent::showCommunicationContent(const HWND hwnd, const HDC dc)
-{
-	//RECT windowSize;
-	//GetClientRect(hwnd, &windowSize);
-	//
-	//HDC backMemDC = CreateCompatibleDC(dc);
-	//HDC MemDC = CreateCompatibleDC(dc);
-	//HBITMAP backBitmap = CreateCompatibleBitmap(dc, windowSize.right, windowSize.bottom);
-	//
-	//HBITMAP oldBitmap = (HBITMAP)SelectObject(backMemDC, backBitmap);
-	//BITMAP bitmapInformation;
-	//GetObject(m_chattingBackground, sizeof(BITMAP), &bitmapInformation);
-	//
-	//for (const std::wstring& content : m_communicationContents) //TEST
-	//{
-	//	TextOut(MemDC, 0, 0, content.c_str(), static_cast<int>(content.length()));
-	//}
-	//
-	////BitBlt(dc, windowSize.right - m_chattingScreenWidth - m_chattingScrollWidth, 0, m_chattingScreenWidth, m_chattingScreenHeight, memoryDc, 0, 0, SRCCOPY);
-	//StretchBlt(backMemDC, windowSize.right - m_chattingScreenWidth - m_chattingScrollWidth, 0, m_chattingScreenWidth, m_chattingScreenHeight, MemDC, 0, 0, bitmapInformation.bmWidth, bitmapInformation.bmHeight, SRCCOPY);
-	//
-	//BitBlt(dc, 0, 0, windowSize.right, windowSize.bottom, backMemDC, 0, 0, SRCCOPY);
-	//SelectObject(bitmapDC, oldBitmap);
-	//DeleteDC(bitmapDC);
-	//DeleteDC(memoryDc);
-
-
-
+{ 
 	RECT windowSize;
 	GetClientRect(hwnd, &windowSize);
 
